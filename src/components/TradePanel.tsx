@@ -63,7 +63,7 @@ export const TradePanel = ({ publicKey }: TradePanelProps) => {
       <Button
         colorScheme="teal"
         onClick={executeTrade}
-        isDisabled={signal?.signal !== "buy" || !publicKey}
+        disabled={signal?.signal !== "buy" || !publicKey}
       >
         Execute Trade
       </Button>
