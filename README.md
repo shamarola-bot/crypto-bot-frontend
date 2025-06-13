@@ -44,3 +44,14 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Crypto Bot Frontend
+A React app for an AI-powered crypto trading bot.
+
+## Deployment
+- Live URL: https://crypto-bot-frontend.vercel.app
+- Backend API: https://crypto-bot-backend.onrender.com
+
+## Setup
+1. Install Phantom wallet.
+2. Run `yarn install` and `yarn start` for local testing.
