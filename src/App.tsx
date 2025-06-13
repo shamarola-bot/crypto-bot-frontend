@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ChakraProvider, Box, Heading, VStack } from "@chakra-ui/react";
+import { WalletConnect } from "./components/WalletConnect";
+import { TradePanel } from "./components/TradePanel";
+import { TransactionHistory } from "./components/TransactionHistory";
+import { useState } from "react";
 
 function App() {
+  const [publicKey, setPublicKey] = useState<string | null>(null);
+  const [balance, setBalance] = useState<number | null>(null);
+
+  const handleConnect = (pubKey: string, balance: number) => {
+    setPublicKey(pubKey);
+    setBalance(balance);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <Box p={8} maxW="600px" mx="auto">
+        <Heading mb={8}>AI Crypto Trading Bot</Heading>
+        <VStack spacing={8}>
+          <WalletConnect onConnect={handleConnect} />
+          <TradePanel publicKey={publicKey} />
+          <TransactionHistory />
+        </VStack>
+      </Box>
+    </ChakraProvider>
   );
 }
 
